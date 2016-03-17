@@ -10,7 +10,7 @@ Spark is a framework. You can use it with Scala, Java, Python and R to work on l
 
 ### How to start?
 
-If you don't want to install everything, you can use docker, whitch has everything you need.
+If you don't want to install everything, you can use docker, which has everything you need.
 
 To set up docker use [docker documentation](https://docs.docker.com/engine/installation/)
 
@@ -38,15 +38,15 @@ To understand a little bit how Spark works, we will use the next material, that 
 wget http://rubigdata.github.io/course/assignments/BigData-big-data-spark-101.snb
 ``` 
 
-You can execute the comands with Shift+Enter.
+You can execute the commands with Shift+Enter.
 
-Let's first make an rdd using a SparkContext(sc) with two parameters, first is a collection of elements from 0 to 999, the second one represents the number of partitions:
+Let's first make an rdd using a SparkContext(sc) function with two parameters, first is a collection of elements from 0 to 999, the second one represents the number of partitions:
 
 ```scala
 val rdd = sc.parallelize(0 to 999,8)
 ```
 
-How can you add all the numbers that you have in your collenction?
+How can you add all the numbers that you have in your collection?
 
 ```scala
 rdd.reduce(_ + _)
@@ -119,7 +119,7 @@ For [more on Spark see this](https://spark.apache.org/docs/latest/programming-gu
 
 ## Second look at Spark
 
-For this we will use the next code exemple:
+For this we will use the next code example:
 
 ```
 wget http://rubigdata.github.io/course/assignments/BigData-big-data-execution-model.snb
@@ -144,7 +144,7 @@ You can see the numbers of partitions like this:
 rddpp.partitions.size
 ```
 
-Do not forget that repartitioning takes time because it is shufflig the data:
+Do not forget that repartitioning takes time because it is shuffling the data:
 
 ```scala
 val rddC = rddA.repartition(2)
