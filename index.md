@@ -119,13 +119,42 @@ For [more on Spark see this](https://spark.apache.org/docs/latest/programming-gu
 
 ## Second look at Spark
 
+For this we will use the next code exemple:
+
 ```
 wget http://rubigdata.github.io/course/assignments/BigData-big-data-execution-model.snb
 ```
 
+Making an rdd with tuples:
 
+```scala
+val rdd1 = sc.parallelize(0 to 999,8)
+val rddp = rdd1.map(x => (x % 100, 1000 - x))
+```
 
+You can choose number of partitions:
 
+```scala
+val rddpp = rddp.partitionBy(new HashPartitioner(2))
+```
+
+You can see the numbers of partitions like this:
+
+```scala
+rddpp.partitions.size
+```
+
+Do not forget that repartitioning takes time because it is shufflig the data:
+
+```scala
+val rddC = rddA.repartition(2)
+```
+
+If you want to reduce the number of partitions:
+
+```scala
+val rddD = rddB.coalesce(2)
+```
 
 
 For [more on Spark see this](https://spark.apache.org/docs/latest/programming-guide.html)
