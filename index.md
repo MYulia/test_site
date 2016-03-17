@@ -1,71 +1,42 @@
 ---
 layout: page
-title: Test site
+title: My experience with Spark
 description: Testing how this works.
 ---
 
-[Github Pages](http://pages.github.com) provide a simple way to make a
-website using
-[Markdown](https://daringfireball.net/projects/markdown/) and
-[git](http://git-scm.com).
+## What is Spark?
 
-For me, the painful aspects of making a website are
+Spark is a framework. You can use it with Scala, Java, Python and R to work on large datasets on clusters.
 
-- Working with html and css
-- Finding a hosting site
-- Transferring stuff to the hosting site
+## How to start?
 
-With [GitHub Pages](http://pages.github.com), you just write things in
-[Markdown](https://daringfireball.net/projects/markdown/),
-[GitHub](http://github.com) hosts the site for you, and you just push
-material to your GitHub repository with `git add`, `git commit`, and
-`git push`.
+If you don't want to install everything, you can use docker, whitch has everything you need.
 
-If you love [git](http://git-scm.com/) and
-[GitHub](http://github.com), you'll love
-[GitHub Pages](http://pages.github.com), too.
+To set up docker use [docker documentation](https://docs.docker.com/engine/installation/)
 
-The sites use [Jekyll](http://jekyllrb.com/), a
-[ruby](https://www.ruby-lang.org/en/) [gem](https://rubygems.org/), to
-convert Markdown files to html, and this part is done
-automatically when you push the materials to the `gh-pages` branch
-of a GitHub repository.
+To test if docker is running use in terminal:
+```
+docker run hello-world
+```
 
-The [GitHub](http://pages.github.com) and
-[Jekyll](http://jekyllrb.com) documentation is great, but I thought it
-would be useful to have a minimal tutorial, for those who just want to
-get going immediately with a simple site. To some readers, what GitHub
-has might be simpler and more direct.  But if you just want to create
-a site like the one you're looking at now, read on.
+To set up Spark notebook:
+```
+docker pull andypetrella/spark-notebook:0.6.2-scala-2.11.7-spark-1.6.0-hadoop-2.7.1-with-hive-with-parquet
+```
 
-Start by reading the [Overview page](pages/overview.html), which
-explains the basic structure of these sites. Then read
-[how to make an independent website](pages/independent_site.html). Then
-read any of the other things, such as
-[how to test your site locally](pages/local_test.html).
+```
+docker run -p 9000:9000 -p 4040-4045:4040-4045 andypetrella/spark-notebook:0.6.2-scala-2.11.7-spark-1.6.0-hadoop-2.7.1-with-hive-with-parquet
+```
 
-- [Overview](pages/overview.html)
-- [Making an independent website](pages/independent_site.html)
-- [Making a personal site](pages/user_site.html)
-- [Making a site for a project](pages/project_site.html)
-- [Making a jekyll-free site](pages/nojekyll.html)
-- [Testing your site locally](pages/local_test.html)
-- [Resources](pages/resources.html)
+## First look at Spark and Scala
 
-If anything here is confusing (or _wrong_!), or if I've missed
-important details, please
-[submit an issue](https://github.com/kbroman/simple_site/issues), or (even
-better) fork [the GitHub repository for this website](http://github.com/kbroman/simple_site),
-make modifications, and submit a pull request.
+To understand a little bit how Spark works, we will use the next material, that should be copied in a directory:
+```
+wget http://rubigdata.github.io/course/assignments/BigData-big-data-spark-101.snb
+``` 
 
----
+## Second look at Spark
 
-The source for this minimal tutorial is [on github](http://github.com/kbroman/simple_site).
-
-Also see my [tutorials](http://kbroman.org/pages/tutorials) on
-[git/github](http://kbroman.org/github_tutorial),
-[GNU make](http://kbroman.org/minimal_make),
-[knitr](http://kbroman.org/knitr_knutshell),
-[R packages](http://kbroman.org/pkg_primer),
-[data organization](http://kbroman.org/dataorg),
-and [reproducible research](http://kbroman.org/steps2rr).
+```
+wget http://rubigdata.github.io/course/assignments/BigData-big-data-execution-model.snb
+```
